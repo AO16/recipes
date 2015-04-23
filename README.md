@@ -22,7 +22,8 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* Configure firebase URL in config/environment.js
+* Configure firebase URL in config/environment.default.js
+* Rename config/environment.default.js to config/environment.js
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
