@@ -1,1 +1,7 @@
 {{outlet}}
+
+<form {{action "updateRecipe" on="submit"}}>
+	{{input value=model.name}}<br />
+	{{textarea value=model.description}}<br />
+	<button>Submit</button>
+</form>
