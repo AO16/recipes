@@ -1,2 +1,11 @@
 {{link-to "Create new" 'recipes.new'}}
 {{outlet}}
+<ul>
+	{{#each model as |recipe|}}
+		<li>
+			{{#link-to 'recipes.show' recipe}}
+				{{recipe.name}}
+			{{/link-to}}
+		</li>
+	{{/each}}
+</ul>

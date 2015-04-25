@@ -9,7 +9,7 @@ export default Router.map(function() {
   this.resource('recipes', function() {
     this.route('index', { path: '/' });
     this.route('new');
-    this.route('show');
-    this.route('edit');
+    this.route('show', { path: '/:id' });
+    this.route('edit', { path: '/:recipeId/edit' });
   });
 });
