@@ -6,7 +6,10 @@
 			{{#link-to 'recipes.show' recipe}}
 				{{recipe.name}}
 			{{/link-to}} |
-			{{link-to "Edit" 'recipes.edit' recipe}}
+			{{link-to "Edit" 'recipes.edit' recipe}} |
+			<a href="" {{action "deleteRecipe" recipe}}>
+				[x]
+			</a>
 		</li>
 	{{/each}}
 </ul>
