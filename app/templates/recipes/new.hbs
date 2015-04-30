@@ -1,8 +1,8 @@
 {{outlet}}
 
 <form {{action "saveRecipe" on="submit"}}>
-	{{input placeholder="Name" value=model.name}}<br />
-	{{textarea placeholder="Description" value=model.description}}<br />
+	{{input placeholder="Name" value=recipe.name}}<br />
+	{{textarea placeholder="Description" value=recipe.description}}<br />
 	<button>Submit</button>
 </form>
 
@@ -10,7 +10,7 @@
 	Add Ingredient
 </a><br />
 
-{{#each model.ingredients as |ingredient|}}
+{{#each ingredients as |ingredient|}}
 	{{input placeholder="Quantity" value=ingredient.quantity}}<br />
 	{{input placeholder="Unit" value=ingredient.unit}}<br />
 	{{input placeholder="Ingredient" value=ingredient.name}}
