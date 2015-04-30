@@ -7,6 +7,9 @@ export default Ember.Route.extend({
 			recipe: Ember.Object.create(),
 			ingredients: Ember.ArrayProxy.create({
 				content: []
+			}),
+			steps: Ember.ArrayProxy.create({
+				content: []
 			})
 		};
 	},

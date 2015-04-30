@@ -8,28 +8,38 @@ export default Ember.Controller.extend({
 	ingredients: null,
 
 
+	steps: null,
+
+
+	saveCollection: function(recipeRecord, name, properties) {
+		this.get(name + 's').forEach(function(item) {
+			var itemProps = item.getProperties(properties);
+			itemProps.recipe = recipeRecord;
+			this.store.createRecord(name, itemProps).save()
+				.then(function(itemRecord) {
+					recipeRecord.get(name + 's').pushObject(itemRecord);
+					recipeRecord.save();
+				});
+		}.bind(this));
+	},
+
+
 	actions: {
 
 		saveRecipe: function() {
-			var recipe, newRecipe;
+			var recipe, recipeRecord;
 
 			recipe = this.get('recipe').getProperties([ 'name', 'description' ]);
 
-			newRecipe = this.store.createRecord('recipe', recipe);
+			recipeRecord = this.store.createRecord('recipe', recipe);
 
-			this.get('ingredients').forEach(function(ingredient) {
-				var ingredientProps = ingredient.getProperties([
-					'quantity',
-					'name',
-					'unit'
-				]);
-				ingredientProps.recipe = newRecipe;
-				this.store.createRecord('ingredient', ingredientProps).save()
-					.then(function(newIngredient) {
-						newRecipe.get('ingredients').pushObject(newIngredient);
-						newRecipe.save();
-					});
-			}.bind(this));
+			this.saveCollection(recipeRecord, 'ingredient', [
+				'quantity',
+				'name',
+				'unit'
+			]);
+
+			this.saveCollection(recipeRecord, 'step', [ 'description' ]);
 
 			this.transitionToRoute('recipes');
 		},
@@ -37,6 +47,11 @@ export default Ember.Controller.extend({
 
 		addIngredient: function() {
 			this.get('ingredients').pushObject(Ember.Object.create());
+		},
+
+
+		addStep: function() {
+			this.get('steps').pushObject(Ember.Object.create());
 		}
 
 	}

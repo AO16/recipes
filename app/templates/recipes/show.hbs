@@ -1,10 +1,17 @@
 {{outlet}}
 <h2>{{model.name}}</h2>
 <p>{{model.description}}</p>
+<strong>Ingredients</strong>
 <ul>
 	{{#each model.ingredients as |ingredient|}}
 		<li>
 			{{ingredient.quantity}} {{ingredient.unit}} {{ingredient.name}}
 		</li>
+	{{/each}}
+</ul>
+<strong>Steps</strong>
+<ul>
+	{{#each model.steps as |step|}}
+		<li>{{step.description}}</li>
 	{{/each}}
 </ul>
