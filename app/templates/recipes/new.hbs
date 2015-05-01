@@ -1,26 +1,11 @@
-{{outlet}}
-
-<form {{action "saveRecipe" on="submit"}}>
-	{{input placeholder="Name" value=recipe.name}}<br />
-	{{textarea placeholder="Description" value=recipe.description}}<br />
-
-	<a {{action "addIngredient"}} href="">
-		Add Ingredient
-	</a><br />
-
-	{{#each ingredients as |ingredient|}}
-		{{input placeholder="Quantity" value=ingredient.quantity}}<br />
-		{{input placeholder="Unit" value=ingredient.unit}}<br />
-		{{input placeholder="Ingredient" value=ingredient.name}}<br />
-	{{/each}}
-
-	<a {{action "addStep"}} href="">
-		Add Step
-	</a><br />
-
-	{{#each steps as |step|}}
-		{{textarea placeholder="Step description" value=step.description}}<br />
-	{{/each}}
+{{#recipe-form
+	action="saveRecipe"
+	addIngredient="addIngredient"
+	addStep="addStep"
+	recipe=model
+	ingredients=model.ingredients
+	steps=model.steps}}
 
 	<button>Submit</button>
-</form>
+
+{{/recipe-form}}

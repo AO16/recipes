@@ -1,16 +1,4 @@
 import Ember from 'ember';
+import RecipeMixin from 'recipes/controllers/recipes/_core/recipe-mixin';
 
-export default Ember.Controller.extend({
-
-	actions: {
-
-		updateRecipe: function() {
-			this.get('model').save()
-				.then(function() {
-					this.transitionToRoute('recipes');
-				}.bind(this));
-		}
-
-	}
-
-});
+export default Ember.Controller.extend(RecipeMixin);

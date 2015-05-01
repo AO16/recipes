@@ -3,20 +3,16 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
 	model: function() {
-		return {
-			recipe: Ember.Object.create(),
-			ingredients: Ember.ArrayProxy.create({
-				content: []
-			}),
-			steps: Ember.ArrayProxy.create({
-				content: []
-			})
-		};
+		return this.store.createRecord('recipe');
 	},
 
 
-	setupController: function(controller, model) {
-		controller.setProperties(model);
+	actions: {
+
+		willTransition: function(transition) {
+			this.controller.get('model').rollback();
+		}
+
 	}
 
 });
