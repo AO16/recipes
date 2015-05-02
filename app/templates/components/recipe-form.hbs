@@ -1,24 +1,61 @@
 <form {{action "saveRecipe" on="submit"}}>
-	{{input placeholder="Name" value=recipe.name}}<br />
-	{{textarea placeholder="Description" value=recipe.description}}<br />
-
-	<a {{action "addIngredient"}} href="">
-		Add Ingredient
-	</a><br />
-
+	<div class="row">
+		<div class="columns">
+			<label>Name
+				{{input value=recipe.name}}
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<label>Description
+				{{textarea value=recipe.description}}<br />
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<a {{action "addIngredient"}} href="">
+				{{fa-icon 'plus-circle'}} Ingredients
+			</a>
+		</div>
+	</div>
 	{{#each ingredients as |ingredient|}}
-		{{input placeholder="Quantity" value=ingredient.quantity}}<br />
-		{{input placeholder="Unit" value=ingredient.unit}}<br />
-		{{input placeholder="Ingredient" value=ingredient.name}}<br />
+		<div class="row">
+			<div class="columns small-4 medium-4 large-4">
+				<label>Quantity
+					{{input value=ingredient.quantity}}
+				</label>
+			</div>
+			<div class="columns small-4 medium-4 large-4">
+				<label>Unit
+					{{input value=ingredient.unit}}
+				</label>
+			</div>
+			<div class="columns small-4 medium-4 large-4">
+				<label>Ingredient
+					{{input value=ingredient.name}}
+				</label>
+			</div>
+		</div>
 	{{/each}}
-
-	<a {{action "addStep"}} href="">
-		Add Step
-	</a><br />
-
+	<div class="row">
+		<div class="columns">
+			<a {{action "addStep"}} href="">
+				{{fa-icon 'plus-circle'}} Steps
+			</a>
+		</div>
+	</div>
 	{{#each steps as |step|}}
-		{{textarea placeholder="Step description" value=step.description}}<br />
+		<div class="row">
+			<div class="columns">
+				{{textarea value=step.description}}<br />
+			</div>
+		</div>
 	{{/each}}
-
-	{{yield}}
+	<div class="row">
+		<div class="columns">
+			{{yield}}
+		</div>
+	</div>
 </form>

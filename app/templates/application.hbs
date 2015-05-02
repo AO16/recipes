@@ -1,3 +1,17 @@
-<h2 id="title">Recipes</h2>
-{{link-to "Recipes" 'recipes.index'}}
+<div class="row">
+	<div class="columns">
+		{{#link-to 'recipes.index'}}
+			<h1 id="title">
+				Recipes
+			</h1>
+		{{/link-to}}
+	</div>
+</div>
+<div class="row">
+	<div class="columns">
+		{{#link-to 'recipes.new'}}
+			{{fa-icon 'plus-circle'}} New recipe
+		{{/link-to}}
+	</div>
+</div>
 {{outlet}}

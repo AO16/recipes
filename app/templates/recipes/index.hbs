@@ -1,15 +1,9 @@
-{{link-to "Create new" 'recipes.new'}}
-{{outlet}}
-<ul>
+<ul class="side-nav">
 	{{#each model as |recipe|}}
 		<li>
 			{{#link-to 'recipes.show' recipe}}
 				{{recipe.name}}
-			{{/link-to}} |
-			{{link-to "Edit" 'recipes.edit' recipe}} |
-			<a href="" {{action "deleteRecipe" recipe}}>
-				[x]
-			</a>
+			{{/link-to}}
 		</li>
 	{{/each}}
 </ul>
