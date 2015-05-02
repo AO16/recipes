@@ -1,9 +1,13 @@
-<ul class="side-nav">
-	{{#each model as |recipe|}}
-		<li>
-			{{#link-to 'recipes.show' recipe}}
-				{{recipe.name}}
-			{{/link-to}}
-		</li>
-	{{/each}}
-</ul>
+<div class="row">
+	<div class="columns">
+		<ul class="side-nav">
+			{{#each model as |recipe|}}
+				<li>
+					{{#link-to 'recipes.show' recipe}}
+						{{recipe.name}}
+					{{/link-to}}
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
