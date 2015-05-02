@@ -9,14 +9,38 @@
 	<div class="row">
 		<div class="columns">
 			<label>Description
-				{{textarea value=recipe.description}}<br />
+				{{textarea value=recipe.description}}
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns small-4 medium-4 large-4">
+			<label>Servings
+				{{input value=recipe.servings type="number"}}
+			</label>
+		</div>
+		<div class="columns small-4 medium-4 large-4">
+			<label>Prep time (minutes)
+				{{input value=recipe.prepTime type="number"}}
+			</label>
+		</div>
+		<div class="columns small-4 medium-4 large-4">
+			<label>Cook time (minutes)
+				{{input value=recipe.cookTime type="number"}}
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<label>Original Link
+				{{input value=recipe.originalLink}}
 			</label>
 		</div>
 	</div>
 	<div class="row">
 		<div class="columns">
 			<a {{action "addIngredient"}} href="">
-				{{fa-icon 'plus-circle'}} Ingredients
+				{{fa-icon 'plus-circle'}} Ingredients<br />
 			</a>
 		</div>
 	</div>
@@ -24,7 +48,7 @@
 		<div class="row">
 			<div class="columns small-4 medium-4 large-4">
 				<label>Quantity
-					{{input value=ingredient.quantity}}
+					{{input value=ingredient.quantity type="number"}}
 				</label>
 			</div>
 			<div class="columns small-4 medium-4 large-4">
@@ -42,7 +66,7 @@
 	<div class="row">
 		<div class="columns">
 			<a {{action "addStep"}} href="">
-				{{fa-icon 'plus-circle'}} Steps
+				{{fa-icon 'plus-circle'}} Steps<br />
 			</a>
 		</div>
 	</div>

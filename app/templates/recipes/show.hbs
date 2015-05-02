@@ -15,6 +15,7 @@
 <div class="row">
 	<div class="columns">
 		<h2>{{model.name}}</h2>
+		<p>Servings: {{model.servings}} | Prep time: {{model.prepTime}} minutes | Cook time: {{model.cookTime}}</p>
 		<p>{{model.description}}</p>
 		<strong>Ingredients</strong>
 		<ul>
@@ -28,5 +29,8 @@
 		{{#each model.steps as |step|}}
 			<p>{{step.description}}</p>
 		{{/each}}
+		<a href="{{model.originalLink}}" target="_blank">
+			Link
+		</a>
 	</div>
 </div>
